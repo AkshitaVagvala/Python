@@ -1,0 +1,128 @@
+
+Certainly! The choice between using shell scripting and Python in DevOps depends on the specific task or problem you're trying to solve. Both have their strengths and are suitable for different scenarios. Here are some guidelines to help you decide when to use each:
+
+
+This question also comes from shell scripting Vs Python. 
+
+Usually, DevOps engineer deals with Linux systems. - That means most of the machines that we used to deploy the software (The applications). Linux is much safer when compared to windows machines or windows servers. 
+They are very less vulnerability. 
+
+Windows/ mac OS are both rich user interface. Means easy to use. 
+Also, If we install EC2 instance on the Linux machine then by default it will not comes with GUI (Graphical user interface). 
+
+To operate anything on the Linux machines like creating a file, website, folders, free disk space, memory and cpu must use the shell commands. 
+
+To interact with Linux machines, then SSH (SSH is the protocol to which you can connect LINUX machine from your personal machine to these Linux system, like can be EC2 instance, VM on Azure or Google cloud, anything… and run the shell commands. 
+
+When you SSH:
+	• You are using a GUI-based terminal app on your laptop
+	• But inside that terminal, you are working in a pure CLI environment of Linux
+So:
+	• GUI → Your computer
+	• CLI → Linux server
+
+What is shell commands and shell scripting
+
+Shell scripting is writing a sequence of shell commands in a file and executing them automatically. 
+
+Simply, we will write all the commands in a file and save the file with name.sh (eg: test.sh) and excute that file to run all the commands in a file at a time like creating file, free (memory), etc…  using a command like ./test.sh and if we execute this file, then all the commands will be executed (print the output) in a serial order on the terminal. 
+
+Also, note that 
+• We don’t create CPU or memory
+👉 We check or manage them using commands like:
+	• free (memory)
+	• top (CPU usage)
+	• df -h (disk space)
+
+
+So, to get some information from linux system then shell scripting can be used. 
+
+What actually happens:
+A shell script is:
+	• A file (usually .sh)
+	• Contains multiple commands
+	• Executed by a shell like Bash
+
+Use Shell Scripting When: 
+Why do we use shell commands / shell scripting?
+	To interact with, control, and automate tasks on a Linux system
+
+	1. System Administration Tasks: Shell scripting is excellent for automating routine system administration tasks like managing files, directories, and processes. You can use shell scripts for tasks like starting/stopping services, managing users, and basic file manipulation.
+	1. 📊 Get information
+	✔️ Yes — this is one use
+	Examples:
+		• Check memory → free -h
+		• Check CPU → top
+		• Check disk → df -h
+	👉 This is monitoring
+	2. Command Line Interactions: If your task primarily involves running command line tools and utilities, shell scripting can be more efficient. It's easy to call and control these utilities from a shell script.
+	2. ⚙️ Perform actions (very important)
+	Not just viewing — you can do things
+	Examples:
+		• Create files → touch file.txt
+		• Start services → systemctl start nginx
+		• Install software → apt install
+	👉 This is managing the system
+	3. Rapid Prototyping: If you need to quickly prototype a solution or perform one-off tasks, shell scripting is usually faster to write and execute. It's great for ad-hoc tasks. ---- Quickly creating a working solution (not perfect) just to test or try something.
+	3. 🤖 Automate tasks (main purpose of scripting)
+	This is where shell scripting becomes powerful
+	Instead of doing manually:
+	
+	cd app
+	git pull
+	npm install
+	npm start
+	👉 You write a script and run once
+
+	🧠 Simple understanding:
+		• Commands → Do one task
+		• Script → Do many tasks automatically
+	4. Text Processing: Shell scripting is well-suited for tasks that involve text manipulation, such as parsing log files, searching and replacing text, or extracting data from text-based sources. You get list of files, log files. From the log files, you want error messages, warning messages etc… from the log files you want to get. 
+	5. Environment Variables and Configuration: Shell scripts are useful for managing environment variables and configuring your system.
+	Real DevOps examples:
+		• Deploy application
+		• Backup files
+		• Clean logs
+		• Monitor disk and send alerts
+		• Run CI/CD steps
+	
+	Shell scripting is used to automate system operations, execute commands, and manage Linux environments efficiently.
+
+
+
+
+	
+Use Python When:
+	1. Complex Logic: Python is a full-fledged programming language and is well-suited for tasks that involve complex logic, data structures, and algorithms. If your task requires extensive data manipulation, Python can be a more powerful choice. 
+	And the most important reason is when you want to perform some complex tasks (scripting point of view )and when you want to write complex programs and you want to interact with API's and when you want to perform more of data manipulation. In such cases Python wins over shell scripting. Python will perform all this activities in a simpler way. 
+	2. Cross-Platform Compatibility: Python is more platform-independent than shell scripting, making it a better choice for tasks that need to run on different operating systems. 
+	As a DevOps engineer, Most of the things we interact with Linux Machines, but some of the systems are interact with Windows Machine. Shell is restricted to Linux only, as we need to get some system information from linux and windows it is not possible. 
+	
+	But it can be possible through Ansible. But Ansible is written in Python. As many learn Ansible, as it is a template for Python and its just a Yaml scripting.
+	
+	So using Ansible you can run both on Linux and Python. 
+	
+	3. API Integration: Python has extensive libraries and modules for interacting with APIs, databases, and web services. If your task involves working with APIs, Python may be a better choice.
+	4. Reusable Code: If you plan to reuse your code or build larger applications, Python's structure and modularity make it easier to manage and maintain.
+	5. Error Handling: Python provides better error handling and debugging capabilities, which can be valuable in DevOps where reliability is crucial. When we are writing the python scripts then we have option to handle the error
+	6. Advanced Data Processing: If your task involves advanced data processing, data analysis, or machine learning, Python's rich ecosystem of libraries (e.g., Pandas, NumPy, SciPy) makes it a more suitable choice. Like talking to API, JSON objects as given example, In other fields need to talk to CSV, talking to third party applications… serverless application, LamDA functions.. AWS, interacting with other AWS services.. To interact with other AWS service we need to interact with API. 
+	
+
+
+
+For eg: if we want to make a API call to Github to find out the issues from all the repo's and their author name means who has created the issue. Instead of going to all the process of using the GITHUB account we can make it by making the API call to Github repo/issue.. 
+
+Then GIThub will give you a JSON payload, it will give very big syntax, from that we need to find out the author. With both shell scripting and python we can do this task but pyhon in more simpler way. 
+
+Using shell scripting we will use - CURL command to talk to the API of GITHUB then will use" Jq" command to parse the Json object Github has given to you. Then we will get the required informtion ----- curl--jq--required.
+
+With python, we can convert Json to dictionary and from that we can get the information in a couple of lines. Which is simple. It is possible with shell scripting but it doesn't have the rich modules which python has. 
+
+
+
+
+
+
+
+
+
