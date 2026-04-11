@@ -36,7 +36,7 @@ banana
 orange
 Note: 
 Automatically loops through each item
-No need to manage index manually
+No need to manage the index manually. Here, the value (Fruits) is stored in fruit (as we are saying to store in fruit), as in the same case as below X. 
 
 in: Used with for, it checks if a value is present in a sequence. Checks membership (exists or not)
 Eg: fruits = ["apple", "banana"]
